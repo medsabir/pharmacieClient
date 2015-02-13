@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14224967823541" configfile="/pharmacieClient/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="index.xhtml" x="122" y="562" id="pf14224968975423" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf14224968975424 pf14224968975425 pf14233308729282" path="/index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="listePharmacies.xhtml" x="338" y="178" id="pf14224968975427" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf14224968975424" path="/listePharmacies.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="listegarde.xhtml" x="338" y="562" id="pf14224968975428" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf14224968975425" path="/listegarde.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pharmacieProche.xhtml" x="338" y="946" id="pf14233308729283" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf14233308729282" path="/pharmacieProche.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pharmacieProche2.xhtml" x="122" y="946" id="pf14233527784321" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" path="/pharmacieProche.xhtml"/>
+  <links id="pf14224968975424" target="pf14224968975427" source="pf14224968975423" outcome="listePharmacie"/>
+  <links id="pf14224968975425" target="pf14224968975428" source="pf14224968975423" outcome="listeGarde"/>
+  <links id="pf14233308729282" target="pf14233308729283" source="pf14224968975423" outcome="pharmacieProche"/>
+</pageflow:Pageflow>

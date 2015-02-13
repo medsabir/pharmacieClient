@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+<style>
+    .Bimage{background-image:url("resources/image/image.jpg");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+            }
+   
+    .p{ 
+        background-image:url("resources/image/images (1).jpg");
+         background-repeat: no-repeat;
+          background-size: 22% 100%;
+       display:block;
+       color : Black;
+        font-family: sans-serif;
+        font-size: x-large; 
+         width:450px;
+         height:70px;
+         border:2px solid ;
+          border-color: Grey ;
+        
+          margin-left:200px ;
+           text-align:right;
+            padding-top: 50px;
+             
+             }
+
+       .l{ margin-left:20px;
+            float:left; 
+             display:block;
+               float:left;   
+             width:250px;
+             height:100px;
+            background-color:Green;
+            color:black;
+           text-decoration:none;
+              text-align:center;
+            padding:5px;
+           border:2px solid;
+
+ border-color: Black ;}
+   </style>
+	<title>Projet Recherche de Pharmacies</title>
+</h:head>
+<h:body styleClass="Bimage" >
+   
+	<h:form style="margin-left:360px">
+		      <br/>     <br/>
+		
+		
+		<h:outputText value="Projet Recherche de Pharmacies" styleClass="p" />       
+          
+		     <br/>     <br/>     <br/>     <br/>     <br/>
+	    
+		<p:commandButton action="#{pharmacie.ListePharmacies()}" styleClass="l"
+			value="liste des pharmacies" ajax="false" icon="ui-icon-search">
+			
+			</p:commandButton>
+		
+		<p:commandButton action="#{pharmacie.ListeGarde()}" styleClass="l"
+			value="liste des pharmacies de garde " ajax="false" icon="ui-icon-search" ></p:commandButton>
+     
+	
+		<p:commandButton action="#{pharmacie.pharmacieProche()}"
+			value="Chercher pharmacie la plus proche  " ajax="false" icon="ui-icon-search" styleClass="l"></p:commandButton>
+			
+     
+	</h:form>
+</h:body>
+</html>

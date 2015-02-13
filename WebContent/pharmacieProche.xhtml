@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<h:head>
+	<title>pharmacie la plus proche</title>
+	<script src="http://maps.google.com/maps/api/js?sensor=false"
+		type="text/javascript"></script>
+	<style>
+.p {
+	background-image: url("resources/image/images (1).jpg");
+	background-repeat: no-repeat;
+	background-size: 22% 100%;
+	display: block;
+	color: Black;
+	font-family: sans-serif;
+	font-size: x-large;
+	width: 520px;
+	height: 70px;
+	border: 2px solid;
+	border-color: Grey;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: right;
+	padding-top: 50px;
+}
+
+.center {
+	margin-left: auto;
+	margin-right: auto;
+}
+</style>
+</h:head>
+<h:body>
+
+
+	<script type="text/javascript">
+		function geocode() {
+			PF('geoMap').geocode(document.getElementById('address').value);
+		}
+	</script>
+	<h:form prependId="false">
+
+		<h:outputText value=" Chercher la pharmacie la plus proche"
+			styleClass="p" />
+
+		<br />
+		<br />
+		<p:separator />
+		<br />
+		<h2>Entrez votre adresse</h2>
+		<h:panelGrid columns="3" style="margin-bottom:10px" cellpadding="5">
+		
+			<p:outputLabel for="address" value="Addresse : " />
+			<p:inputText id="address" required="true" maxlength="50" size="50"/>
+			<p:messages id="messages" autoUpdate="true" closable="true"/>
+			<p:message for="address" />
+			<p:commandButton value="Chercher pharmacie la plus proche" icon="ui-icon-search" onclick="geocode()"/>
+		</h:panelGrid>
+		<br />
+		<p:separator />
+		<br />
+		<p:dataTable value="#{geocodeView.getListproche()}" var="aux"
+			width="1300px" styleClass="center">
+			<p:column headerText="N°" width="30">
+				<h:outputText value="#{aux.id} ">
+				</h:outputText>
+			</p:column>
+
+			<p:column headerText="Nom " width="300">
+				<h:outputText value="#{aux.getNom()}">
+				</h:outputText>
+			</p:column>
+
+			<p:column headerText="Adresse" width="500">
+				<h:outputText value="#{aux.getAdresse()}">
+				</h:outputText>
+			</p:column>
+			<p:column headerText="Telephone" width="200">
+				<h:outputText value="#{aux.getNum()} ">
+				</h:outputText>
+			</p:column>
+
+			<p:column headerText="Email" width="200">
+				<h:outputText value="#{aux.getEmail()} ">
+				</h:outputText>
+			</p:column>
+		</p:dataTable>
+		<br />
+		<p:gmap id="geoGmap" widgetVar="geoMap"
+			center="#{pharmacie.getX()}, #{pharmacie.getY()}" zoom="13"
+			type="ROADMAP" model="#{geocodeView.getGeoModel()}" styleClass="center"
+			style="width:600px;height:400px">
+			<p:ajax event="geocode" listener="#{geocodeView.onGeocode}"
+				update="@form" />
+
+		</p:gmap>
+
+	</h:form>
+
+
+</h:body>
+</html>
+
