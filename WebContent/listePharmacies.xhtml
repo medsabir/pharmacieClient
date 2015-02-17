@@ -40,7 +40,8 @@
           <h:outputText value="Liste de toutes les pharmacies" styleClass="p" /> 
           
 		     <br/>     <br/>   <p:separator />  <br/>     
-		<p:dataTable value="#{pharmacie.getListe()}" var="aux" width="1300px" styleClass="center">
+		<p:dataTable value="#{pharmacie.getListe()}" var="aux" width="1300px" styleClass="center" paginator="true" rows="10"
+                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="5,10,15">
 			<p:column headerText="N°" width="30">
 				<h:outputText value="#{aux.id} ">
 				</h:outputText>
@@ -60,15 +61,11 @@
 				</h:outputText>
 			</p:column>
 		
-				<p:column headerText="Email" width="200">
-				<h:outputText value="#{aux.getEmail()} ">
-				</h:outputText>
-			</p:column>
 		</p:dataTable>
    
      <br/>
       <p:growl id="growl" showDetail="true"/>
-      <p:gmap center="#{pharmacie.getX()}, #{pharmacie.getY()}" zoom="12" type="ROADMAP" model="#{pharmacie.getMR().getSimpleModel()}" styleClass="center" style="width:500px;height:400px;" id="map2" >
+      <p:gmap center="#{pharmacie.getX()}, #{pharmacie.getY()}" zoom="11" type="ROADMAP" model="#{pharmacie.getMR().getSimpleModel()}" styleClass="center" style="width:500px;height:400px;" id="map2" >
 	  <p:ajax event="overlaySelect" listener="#{markerSelectionView.onMarkerSelect}" update="growl" />
 	
 	  </p:gmap>

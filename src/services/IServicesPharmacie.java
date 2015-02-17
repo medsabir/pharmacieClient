@@ -54,14 +54,14 @@ public interface IServicesPharmacie {
      * @param arg1
      * @param arg0
      * @return
-     *     returns java.util.List<services.Pharmacie>
+     *     returns services.Pharmacie
      */
-    @WebMethod(operationName = "ListdesPharmaciesProche")
+    @WebMethod(operationName = "PharmacieProche")
     @WebResult(name = "ListeDesPharmaciesProche", targetNamespace = "")
-    @RequestWrapper(localName = "ListdesPharmaciesProche", targetNamespace = "http://services/", className = "services.ListdesPharmaciesProche")
-    @ResponseWrapper(localName = "ListdesPharmaciesProcheResponse", targetNamespace = "http://services/", className = "services.ListdesPharmaciesProcheResponse")
-    @Action(input = "http://services/IServicesPharmacie/ListdesPharmaciesProcheRequest", output = "http://services/IServicesPharmacie/ListdesPharmaciesProcheResponse")
-    public List<Pharmacie> listdesPharmaciesProche(
+    @RequestWrapper(localName = "PharmacieProche", targetNamespace = "http://services/", className = "services.PharmacieProche")
+    @ResponseWrapper(localName = "PharmacieProcheResponse", targetNamespace = "http://services/", className = "services.PharmacieProcheResponse")
+    @Action(input = "http://services/IServicesPharmacie/PharmacieProcheRequest", output = "http://services/IServicesPharmacie/PharmacieProcheResponse")
+    public Pharmacie pharmacieProche(
         @WebParam(name = "arg0", targetNamespace = "")
         Double arg0,
         @WebParam(name = "arg1", targetNamespace = "")

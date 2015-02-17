@@ -25,12 +25,12 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
 
     private final static QName _ListdesPharmacies_QNAME = new QName("http://services/", "ListdesPharmacies");
-    private final static QName _ListdesPharmaciesProche_QNAME = new QName("http://services/", "ListdesPharmaciesProche");
+    private final static QName _PharmacieProcheResponse_QNAME = new QName("http://services/", "PharmacieProcheResponse");
     private final static QName _ListdesPharmaciesenGardeResponse_QNAME = new QName("http://services/", "ListdesPharmaciesenGardeResponse");
     private final static QName _ListdesPharmaciesenGarde_QNAME = new QName("http://services/", "ListdesPharmaciesenGarde");
     private final static QName _Pharmacie_QNAME = new QName("http://services/", "Pharmacie");
     private final static QName _ListdesPharmaciesResponse_QNAME = new QName("http://services/", "ListdesPharmaciesResponse");
-    private final static QName _ListdesPharmaciesProcheResponse_QNAME = new QName("http://services/", "ListdesPharmaciesProcheResponse");
+    private final static QName _PharmacieProche_QNAME = new QName("http://services/", "PharmacieProche");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: services
@@ -40,11 +40,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ListdesPharmaciesProcheResponse }
+     * Create an instance of {@link PharmacieProche }
      * 
      */
-    public ListdesPharmaciesProcheResponse createListdesPharmaciesProcheResponse() {
-        return new ListdesPharmaciesProcheResponse();
+    public PharmacieProche createPharmacieProche() {
+        return new PharmacieProche();
     }
 
     /**
@@ -80,11 +80,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ListdesPharmaciesProche }
+     * Create an instance of {@link PharmacieProcheResponse }
      * 
      */
-    public ListdesPharmaciesProche createListdesPharmaciesProche() {
-        return new ListdesPharmaciesProche();
+    public PharmacieProcheResponse createPharmacieProcheResponse() {
+        return new PharmacieProcheResponse();
     }
 
     /**
@@ -105,12 +105,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ListdesPharmaciesProche }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link PharmacieProcheResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://services/", name = "ListdesPharmaciesProche")
-    public JAXBElement<ListdesPharmaciesProche> createListdesPharmaciesProche(ListdesPharmaciesProche value) {
-        return new JAXBElement<ListdesPharmaciesProche>(_ListdesPharmaciesProche_QNAME, ListdesPharmaciesProche.class, null, value);
+    @XmlElementDecl(namespace = "http://services/", name = "PharmacieProcheResponse")
+    public JAXBElement<PharmacieProcheResponse> createPharmacieProcheResponse(PharmacieProcheResponse value) {
+        return new JAXBElement<PharmacieProcheResponse>(_PharmacieProcheResponse_QNAME, PharmacieProcheResponse.class, null, value);
     }
 
     /**
@@ -150,12 +150,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ListdesPharmaciesProcheResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link PharmacieProche }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://services/", name = "ListdesPharmaciesProcheResponse")
-    public JAXBElement<ListdesPharmaciesProcheResponse> createListdesPharmaciesProcheResponse(ListdesPharmaciesProcheResponse value) {
-        return new JAXBElement<ListdesPharmaciesProcheResponse>(_ListdesPharmaciesProcheResponse_QNAME, ListdesPharmaciesProcheResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://services/", name = "PharmacieProche")
+    public JAXBElement<PharmacieProche> createPharmacieProche(PharmacieProche value) {
+        return new JAXBElement<PharmacieProche>(_PharmacieProche_QNAME, PharmacieProche.class, null, value);
     }
 
 }

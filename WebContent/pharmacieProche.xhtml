@@ -63,7 +63,7 @@
 		<br />
 		<p:separator />
 		<br />
-		<p:dataTable value="#{geocodeView.getListproche()}" var="aux"
+		<p:dataTable value="#{geocodeView.getProche()}" var="aux"
 			width="1300px" styleClass="center">
 			<p:column headerText="N°" width="30">
 				<h:outputText value="#{aux.id} ">
@@ -84,14 +84,10 @@
 				</h:outputText>
 			</p:column>
 
-			<p:column headerText="Email" width="200">
-				<h:outputText value="#{aux.getEmail()} ">
-				</h:outputText>
-			</p:column>
 		</p:dataTable>
 		<br />
 		<p:gmap id="geoGmap" widgetVar="geoMap"
-			center="#{pharmacie.getX()}, #{pharmacie.getY()}" zoom="13"
+			center="#{pharmacie.getX()}, #{pharmacie.getY()}" zoom="11"
 			type="ROADMAP" model="#{geocodeView.getGeoModel()}" styleClass="center"
 			style="width:600px;height:400px">
 			<p:ajax event="geocode" listener="#{geocodeView.onGeocode}"

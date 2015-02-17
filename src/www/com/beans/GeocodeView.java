@@ -1,6 +1,5 @@
 package www.com.beans;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -20,31 +19,32 @@ import services.ServicesPharmacieService;
 public class GeocodeView {
 
 	private MapModel geoModel=new DefaultMapModel();;
-	private List<Pharmacie> listproche = new ArrayList<Pharmacie>();
+	private Pharmacie proche = new Pharmacie();
 
 	public void onGeocode(GeocodeEvent event) {
 		List<GeocodeResult> results = event.getResults();
 		if (results != null && !results.isEmpty()) {
+			
 			LatLng center = results.get(0).getLatLng();
 			Double lat = center.getLat();
 			Double log = center.getLng();
+			
 			ServicesPharmacieService pharmacieService = new ServicesPharmacieService();
-			IServicesPharmacie IpharmacieService = pharmacieService
-					.getServicesPharmaciePort();
-			setListproche(IpharmacieService.listdesPharmaciesProche(lat, log));
-			for (Pharmacie p : getListproche()) {
-				LatLng coordi = new LatLng(p.getLat(), p.getLog());
-				geoModel.addOverlay(new Marker(coordi, p.getNom()));
-			}
+			IServicesPharmacie IpharmacieService = pharmacieService.getServicesPharmaciePort();
+			setProche(IpharmacieService.pharmacieProche(lat, log));
+			
+				LatLng coordi = new LatLng(getProche().getLat(), getProche().getLog());
+				geoModel.addOverlay(new Marker(coordi, getProche().getNom()));
 		}
 	}
 
-	public void setListproche(List<Pharmacie> listproche) {
-		this.listproche = listproche;
+
+	public Pharmacie getProche() {
+		return proche;
 	}
 
-	public List<Pharmacie> getListproche() {
-		return listproche;
+	public void setProche(Pharmacie proche) {
+		this.proche = proche;
 	}
 
 	public MapModel getGeoModel() {
